@@ -35,7 +35,7 @@
         <div class="alert alert-danger">
             <?php foreach (session()->getFlashdata('errors') as $error): ?>
                 <p><?= esc($error) ?></p>
-            <?php foreach; ?>
+            <?php endforeach; ?>
         </div>
     <?php endif; ?>
 
