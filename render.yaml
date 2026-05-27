@@ -15,7 +15,7 @@ services:
       - key: database.default.username
         value: avnadmin
       - key: database.default.password
-        value: AVNS_kruV4-gJmsPV3uxViBv
+        sync: false
       - key: database.default.database
         value: defaultdb
       - key: database.default.DBDriver
