@@ -18,12 +18,14 @@ $routes->set404Override();
 $routes->setAutoRoute(true);
 
 $routes->get('/', 'Home::index');
-$routes->get('login', 'Login::index'); // ⬅️ Dito mo siya isaksak!
+$routes->get('login', 'Home::login'); // ⬅️ Dito mo siya itabi gagi!
 
 // Ito naman yung para sa activity natin:
 $routes->get('form', static function () {
     return view('my_form');
 });
+
+$routes->setAutoRoute(false);
 
 $routes->post('form', static function () {
     // Kinukuha natin ang text na tinype ng user at ipinapasa sa 'my_form' view
