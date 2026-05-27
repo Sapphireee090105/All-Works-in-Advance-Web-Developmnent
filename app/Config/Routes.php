@@ -19,6 +19,7 @@ $routes->setAutoRoute(true);
 
 $routes->get('/', 'Home::index');
 $routes->get('login', 'Home::login'); // ⬅️ Dito mo siya itabi gagi!
+$routes->post('login-check', 'Home::checkLogin');
 
 // Ito naman yung para sa activity natin:
 $routes->get('form', static function () {
