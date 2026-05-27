@@ -65,4 +65,9 @@ class UserController extends Controller
 
         return redirect()->back()->with('error', 'File upload failed.');
     }
+
+    public function login()
+    {
+        return view('login_view');
+    }
 }

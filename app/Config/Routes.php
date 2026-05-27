@@ -17,8 +17,8 @@ $routes->setTranslateURIDashes(false);
 $routes->set404Override();
 $routes->setAutoRoute(true);
 
-// Ito yung natanggal mo, ibalik lang natin:
 $routes->get('/', 'Home::index');
+$routes->get('login', 'Login::index'); // ⬅️ Dito mo siya isaksak!
 
 // Ito naman yung para sa activity natin:
 $routes->get('form', static function () {
@@ -31,5 +31,6 @@ $routes->post('form', static function () {
     return view('my_form', $data);
 });
 
+$routes->get('login', 'UserController::login');
 $routes->get('users', 'UserController::index');
 $routes->post('users/upload', 'UserController::upload');
