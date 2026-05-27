@@ -3,19 +3,20 @@
 namespace App\Controllers;
 
 use App\Models\UserModel;
-use CodeIgniter\Controller;
 
-class UserController extends Controller
+class UserController extends BaseController
 {
     public function index()
-{
-    // Pansamantalang huwag muna nating tawagin si UserModel para hindi mag-error ang pahina habang blangko pa ang database.
-    $data = [
-        'users' => [], 
-        'pager' => null,
-    ];
-    return view('user_profile', $data); 
-}
+    {
+        $userModel = new UserModel();
+
+        $data = [
+            'users' => $userModel->paginate(5), // Kukuha ng 5 users kada pahina
+            'pager' => $userModel->pager,       // Dito nanggagaling ang links ng page navigation
+        ];
+
+        return view('user_profile', $data);
+    }
 
     public function upload()
     {
