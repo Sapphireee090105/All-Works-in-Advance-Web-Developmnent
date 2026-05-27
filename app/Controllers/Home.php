@@ -17,27 +17,14 @@ class Home extends BaseController
 
     public function checkLogin()
     {
-        // 1. Tawagin ang UserModel mo
-        $userModel = new \App\Models\UserModel();
-
-        // 2. Kunin ang input mula sa login view form natin
         $username = $this->request->getPost('username');
         $password = $this->request->getPost('password');
 
-        // 3. DITO MO SYA ILALAGAY GAGI! Hahanapin niya sa Database table
-        $user = $userModel->where('username', $username)->first();
-
-        // 4. I-verify kung may nahanap na user at kung tama ang password
-        if ($user) {
-            // TANDAAN: Kung ang password mo sa database ay plain text (hindi naka-hash):
-            if ($password === $user['password']) {
-                
-                // Kapag TAMA ang login, itatapon natin siya sa Profile List view!
-                return redirect()->to('/users'); 
-            }
+        // BASTOS LOG-IN: Imbento muna tayong account para ma-test mo agad!
+        if ($username === 'admin' && $password === 'password123') {
+            return redirect()->to('/users'); 
         }
 
-        // Kapag MALI ang login, babalik lang siya sa login layout
         return redirect()->to('/login');
     }
 }
