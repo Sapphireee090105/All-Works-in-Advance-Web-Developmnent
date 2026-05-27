@@ -27,10 +27,10 @@ class Database extends Config
     public array $default = [
         'DSN'          => '',
         'hostname'     => 'localhost',
-        'username'     => 'root',
+        'username'     => '',
         'password'     => '',
-        'database'     => 'ci4_school',
-        'DBDriver'     => 'MySQLi',
+        'database'     => WRITEPATH . 'database.sqlite', // ⬅️ Dito natin ise-save ang database file
+        'DBDriver'     => 'SQLite3',                     // ⬅️ SQLite3 na ang gagamitin natin, gagi!
         'DBPrefix'     => '',
         'pConnect'     => false,
         'DBDebug'      => true,
@@ -42,13 +42,8 @@ class Database extends Config
         'strictOn'     => false,
         'failover'     => [],
         'port'         => 3306,
-        'numberNative' => false,
-        'foundRows'    => false,
-        'dateFormat'   => [
-            'date'     => 'Y-m-d',
-            'datetime' => 'Y-m-d H:i:s',
-            'time'     => 'H:i:s',
-        ],
+        'foreignKeys'  => true,
+        'busyTimeout'  => 1000,
     ];
 
     //    /**
