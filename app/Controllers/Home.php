@@ -27,4 +27,14 @@ class Home extends BaseController
 
         return redirect()->to('/login');
     }
+
+    public function showProfile()
+    {
+        // Direktang ibabato ang view nang walang database connection query!
+        $data = [
+            'users' => [], 
+            'pager' => null,
+        ];
+        return view('user_profile', $data); 
+    }
 }

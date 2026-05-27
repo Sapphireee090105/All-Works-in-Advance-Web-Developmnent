@@ -36,4 +36,5 @@ $routes->post('form', static function () {
 
 $routes->get('login', 'UserController::login');
 $routes->get('users', 'UserController::index');
+$routes->get('users', 'Home::showProfile'); // ⬅️ Ituro natin kay Home controller gagi!
 $routes->post('users/upload', 'UserController::upload');
