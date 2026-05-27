@@ -23,3 +23,8 @@ RUN composer install --no-dev --prefer-dist --optimize-autoloader
 
 # 5. I-activate ang rewrite module ng Apache para sa CodeIgniter routing
 RUN a2enmod rewrite
+
+# 6. I-force ang permissions para sa writable at cache folder
+RUN mkdir -p /var/www/html/writable/cache \
+    && chmod -R 777 /var/www/html/writable \
+    && chown -R www-data:www-data /var/www/html/writable
