@@ -8,18 +8,14 @@ use CodeIgniter\Controller;
 class UserController extends Controller
 {
     public function index()
-    {
-        $userModel = new UserModel();
-
-        // Step 3 Framework: Paginate users (5 per page)
-        $data = [
-            'users'  => $userModel->paginate(5),
-            'pager'  => $userModel->pager,
-            'validation' => \Config\Services::validation()
-        ];
-
-        return view('user_profile', $data);
-    }
+{
+    // Pansamantalang huwag muna nating tawagin si UserModel para hindi mag-error ang pahina habang blangko pa ang database.
+    $data = [
+        'users' => [], 
+        'pager' => null,
+    ];
+    return view('user_profile', $data); 
+}
 
     public function upload()
     {
