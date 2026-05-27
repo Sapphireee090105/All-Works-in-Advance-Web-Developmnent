@@ -1,0 +1,22 @@
+services:
+  - type: web
+    name: onia-website-webdev
+    runtime: php
+    region: singapore
+    buildCommand: composer install
+    startCommand: heroku-php-apache2 public/
+    envVars:
+      - key: CI_ENVIRONMENT
+        value: production
+      - key: database.default.hostname
+        value: mysql-7b4e45a-onia-website-webdev.h.aivencloud.com
+      - key: database.default.port
+        value: '25133'
+      - key: database.default.username
+        value: avnadmin
+      - key: database.default.password
+        value: AVNS_kruV4-gJmsPV3uxViBv
+      - key: database.default.database
+        value: defaultdb
+      - key: database.default.DBDriver
+        value: 'MySQLi'
